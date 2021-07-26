@@ -1,1 +1,1 @@
-# anime-library-app-android
+# pokidex-android
