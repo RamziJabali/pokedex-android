@@ -1,1 +1,1 @@
-# pokidex-android
+# pokedex-android
