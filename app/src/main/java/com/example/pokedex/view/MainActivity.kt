@@ -2,34 +2,50 @@ package com.example.pokedex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.pokedex.model.PokedexRepo
+import android.widget.GridView
 import com.example.pokedex.R
-import com.example.pokedex.model.UseCase
+import com.example.pokedex.viewmodelpokedex.ViewModel
+import com.example.pokedex.viewmodelpokedex.ViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ViewListener {
+
+    private lateinit var gridView: GridView
+    private lateinit var gridViewAdapter: PokedexGridAdapter
+    private val compositeDisposable = CompositeDisposable()
+
+    private val viewModel: ViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val useCase = UseCase(get<PokedexRepo>()).getPokedex(1)
+        setup()
+        viewModel.startApplication()
+        compositeDisposable.add(viewModel.viewStateObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.v("MainActivity",it.pokemonName)
-                    Log.v("MainActivity",it.pokemonOrderNumber.toString())
-                    Log.v("MainActivity",it.pokemonStats[1].pokemonStatType.statTypeName)
-                    Log.v("MainActivity",it.pokemonTypes[1].pokemonSpecificType.pokemonTypeName)
-                },
-                        { error -> onFailure(error.localizedMessage) })
+                .subscribe{viewState -> setNewViewState(viewState)}
+        )
     }
 
-    private fun onFailure(localizedMessage: String?) {
-        Log.e("MainActivity", localizedMessage!!)
+    override fun setNewViewState(viewState: ViewState) {
+        gridView.numColumns = 2
+        gridViewAdapter.setGridItems(viewState.gridProperties)
     }
+
+    override fun onDestroy() {
+        compositeDisposable.clear()
+        super.onDestroy()
+    }
+
+    fun setup() {
+        gridView = findViewById(R.id.gridView)
+        gridViewAdapter = PokedexGridAdapter()
+        gridView.adapter = gridViewAdapter
+    }
+
 
 }
