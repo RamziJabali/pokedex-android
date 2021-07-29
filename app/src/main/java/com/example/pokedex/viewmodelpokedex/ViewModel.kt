@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.network.Pokemon
-import com.example.pokedex.view.GridProperties
+import com.example.pokedex.pokedexview.GridProperties
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

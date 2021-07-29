@@ -1,4 +1,4 @@
-package com.example.pokedex.view
+package com.example.pokedex.pokedexview
 
 import com.example.pokedex.viewmodelpokedex.ViewState
 
