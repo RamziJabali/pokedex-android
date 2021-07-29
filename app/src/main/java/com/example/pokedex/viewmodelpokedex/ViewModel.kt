@@ -19,7 +19,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
 
     fun startApplication() {
-        for (apiCallNumber in (1 until 3)) {
+        for (apiCallNumber in (1 until 20)) {
             makeApiCall(apiCallNumber)
         }
     }
@@ -35,13 +35,16 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { pokemon -> onSuccess(pokemon) },
+                    { pokemon -> onSuccess(pokemon, callNumber) },
                     { error -> onFailure(error.localizedMessage) })
         )
     }
 
-    private fun onSuccess(pokemon: Pokemon) {
-        val boardProperty = GridProperties(itemText = pokemon.pokemonName)
+    private fun onSuccess(pokemon: Pokemon, callNumber: Int) {
+        val boardProperty = GridProperties(
+            itemText = pokemon.pokemonName,
+            itemOrderNumber = callNumber
+        )
         viewState.gridProperties.add(boardProperty)
         invalidateView()
     }
