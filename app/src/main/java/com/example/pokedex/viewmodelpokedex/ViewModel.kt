@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.network.Pokemon
 import com.example.pokedex.pokedexview.GridProperties
+import com.example.pokedex.viewmodelpokemon.PokemonViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -44,6 +45,14 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
         val boardProperty = GridProperties(
             itemText = pokemon.pokemonName,
             itemOrderNumber = callNumber
+        )
+        viewState.pokemonArrayList.add(
+            PokemonViewState(
+                pokemonName = pokemon.pokemonName,
+                pokemonOrderNumber = callNumber,
+                pokemonStats = pokemon.pokemonStats,
+                pokemonType = pokemon.pokemonTypes
+            )
         )
         viewState.gridProperties.add(boardProperty)
         invalidateView()

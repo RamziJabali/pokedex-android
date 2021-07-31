@@ -1,10 +1,11 @@
 package com.example.pokedex.viewmodelpokemon
 
+import com.example.pokedex.network.PokemonStats
+import com.example.pokedex.network.PokemonType
+
 class PokemonViewState(
     val pokemonName: String = "",
     val pokemonOrderNumber: Int = -1,
-    val pokemonSlotNumber: Array<Int> = emptyArray(),
-    val pokemonBaseStat: Array<Int> = emptyArray(),
-    val pokemonBaseStatName: Array<String> = emptyArray(),
-    val pokemonTypeName: Array<String> = emptyArray()
+    val pokemonStats: Array<PokemonStats> = emptyArray(),
+    val pokemonType: Array<PokemonType> = emptyArray(),
 )

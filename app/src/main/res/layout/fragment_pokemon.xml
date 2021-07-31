@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pokemonview.PokemonActivity">
-
-
+    tools:context=".pokemonview.PokemonFragment">
 
     <ImageView
         android:id="@+id/pokemonImageEnhanced"
@@ -145,6 +143,5 @@
         app:layout_constraintTop_toBottomOf="@id/statThreeValue"
         app:layout_constraintVertical_bias="0.161"
         tools:text="150" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

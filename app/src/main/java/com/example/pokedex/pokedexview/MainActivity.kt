@@ -1,11 +1,11 @@
 package com.example.pokedex.pokedexview
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.GridView
 import com.example.pokedex.R
-import com.example.pokedex.pokemonview.PokemonActivity
+import com.example.pokedex.pokemonview.PokemonFragment
 import com.example.pokedex.viewmodelpokedex.ViewModel
 import com.example.pokedex.viewmodelpokedex.ViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     private lateinit var gridView: GridView
     private lateinit var gridViewAdapter: PokedexGridAdapter
+    private lateinit var flFragment: FrameLayout
+    private lateinit var pokemonFragment: PokemonFragment
+
+    private lateinit var viewState: ViewState
+
     private val compositeDisposable = CompositeDisposable()
 
     private val viewModel: ViewModel by viewModel()
@@ -29,7 +34,10 @@ class MainActivity : AppCompatActivity(), ViewListener {
         compositeDisposable.add(viewModel.viewStateObservable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { viewState -> setNewViewState(viewState) }
+            .subscribe { viewState ->
+                this.viewState = viewState
+                setNewViewState(viewState)
+            }
         )
     }
 
@@ -43,15 +51,29 @@ class MainActivity : AppCompatActivity(), ViewListener {
         super.onDestroy()
     }
 
-    fun setup() {
+    private fun setup() {
         gridView = findViewById(R.id.gridView)
         gridView.numColumns = 2
         gridViewAdapter = PokedexGridAdapter()
-        gridView.setOnItemClickListener { parent, view, position, id ->
-            startActivity(Intent(this, PokemonActivity::class.java))
-        }
+
+        setupFragment()
         gridView.adapter = gridViewAdapter
+        onItemClick()
     }
 
+    private fun setupFragment() {
+        pokemonFragment = PokemonFragment()
+        flFragment = findViewById(R.id.flFragment)
+    }
 
+    private fun onItemClick() {
+        gridView.setOnItemClickListener { parent, view, position, id ->
+            pokemonFragment.setFragmentMembers(viewState,position)
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment, pokemonFragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
+    }
 }
