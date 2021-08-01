@@ -2,6 +2,7 @@ package com.example.pokedex.pokedexview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
 import android.widget.FrameLayout
 import android.widget.GridView
 import com.example.pokedex.R
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity(), ViewListener {
                 setNewViewState(viewState)
             }
         )
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flFragment, pokemonFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun setNewViewState(viewState: ViewState) {
@@ -52,11 +57,10 @@ class MainActivity : AppCompatActivity(), ViewListener {
     }
 
     private fun setup() {
+        setupFragment()
         gridView = findViewById(R.id.gridView)
         gridView.numColumns = 2
         gridViewAdapter = PokedexGridAdapter()
-
-        setupFragment()
         gridView.adapter = gridViewAdapter
         onItemClick()
     }
@@ -68,12 +72,12 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     private fun onItemClick() {
         gridView.setOnItemClickListener { parent, view, position, id ->
-            pokemonFragment.setFragmentMembers(viewState,position)
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.flFragment, pokemonFragment)
-                addToBackStack(null)
-                commit()
-            }
+            gridView.visibility = GONE
+            pokemonFragment.setFragmentMembers(viewState, position)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, pokemonFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
