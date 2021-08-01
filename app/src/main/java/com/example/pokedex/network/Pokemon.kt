@@ -1,5 +1,8 @@
 package com.example.pokedex.network
 
+import android.os.Parcel
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelField
 import com.google.gson.annotations.SerializedName
 
 data class Pokemon(
@@ -11,4 +14,4 @@ data class Pokemon(
     val pokemonStats: Array<PokemonStats>,
     @SerializedName("types")
     val pokemonTypes: Array<PokemonType>
-)
+) 

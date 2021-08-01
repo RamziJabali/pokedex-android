@@ -1,4 +1,4 @@
-package com.example.pokedex.viewmodelpokemon
+package com.example.pokedex.pokemon.viewmodel
 
 import com.example.pokedex.network.PokemonStats
 import com.example.pokedex.network.PokemonType

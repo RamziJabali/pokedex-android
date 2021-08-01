@@ -1,11 +1,11 @@
-package com.example.pokedex.viewmodelpokedex
+package com.example.pokedex.pokedex.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.network.Pokemon
-import com.example.pokedex.pokedexview.GridProperties
-import com.example.pokedex.viewmodelpokemon.PokemonViewState
+import com.example.pokedex.pokedex.view.GridProperties
+import com.example.pokedex.pokemon.viewmodel.PokemonViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

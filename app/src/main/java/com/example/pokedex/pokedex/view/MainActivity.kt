@@ -1,4 +1,4 @@
-package com.example.pokedex.pokedexview
+package com.example.pokedex.pokedex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.view.View.GONE
 import android.widget.FrameLayout
 import android.widget.GridView
 import com.example.pokedex.R
-import com.example.pokedex.pokemonview.PokemonFragment
-import com.example.pokedex.viewmodelpokedex.ViewModel
-import com.example.pokedex.viewmodelpokedex.ViewState
+import com.example.pokedex.pokemon.view.PokemonFragment
+import com.example.pokedex.pokedex.viewmodel.ViewModel
+import com.example.pokedex.pokedex.viewmodel.ViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

@@ -1,8 +1,7 @@
-package com.example.pokedex.pokedexview
+package com.example.pokedex.pokedex.view
 
 import androidx.annotation.ColorRes
 import com.example.pokedex.R
-import com.example.pokedex.viewmodelpokemon.PokemonViewState
 
 data class GridProperties(
     var itemText: String = "",

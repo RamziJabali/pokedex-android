@@ -5,7 +5,7 @@
     android:name="fragment_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pokedexview.MainActivity">
+    tools:context=".pokedex.view.MainActivity">
 
     <GridView
         android:id="@+id/gridView"

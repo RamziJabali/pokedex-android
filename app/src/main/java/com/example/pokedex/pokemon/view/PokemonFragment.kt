@@ -1,4 +1,4 @@
-package com.example.pokedex.pokemonview
+package com.example.pokedex.pokemon.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pokedex.R
-import com.example.pokedex.viewmodelpokedex.ViewState
+import com.example.pokedex.pokedex.viewmodel.ViewState
 import com.squareup.picasso.Picasso
 
 class PokemonFragment : Fragment() {

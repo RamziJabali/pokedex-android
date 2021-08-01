@@ -1,4 +1,4 @@
-package com.example.pokedex.pokedexview
+package com.example.pokedex.pokedex.view
 
 import android.view.View
 import android.view.ViewGroup
