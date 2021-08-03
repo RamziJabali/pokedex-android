@@ -20,7 +20,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
 
     fun startApplication() {
-        for (apiCallNumber in (1 until 20)) {
+        for (apiCallNumber in (0 until 11)) {
             makeApiCall(apiCallNumber)
         }
     }
@@ -49,7 +49,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
         viewState.pokemonArrayList.add(
             PokemonViewState(
                 pokemonName = pokemon.pokemonName,
-                pokemonOrderNumber = callNumber,
+                pokemonOrderNumber = pokemon.pokemonOrderNumber,
                 pokemonStats = pokemon.pokemonStats,
                 pokemonType = pokemon.pokemonTypes
             )
@@ -59,7 +59,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     }
 
     private fun onFailure(localizedMessage: String?) {
-        Log.e("MainActivity", localizedMessage!!)
+        Log.e("ViewModel", localizedMessage!!)
     }
 
     private fun invalidateView() {

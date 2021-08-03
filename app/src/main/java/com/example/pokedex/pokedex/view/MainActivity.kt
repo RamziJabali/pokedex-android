@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.widget.FrameLayout
 import android.widget.GridView
+import androidx.fragment.app.commit
 import com.example.pokedex.R
 import com.example.pokedex.pokemon.view.PokemonFragment
 import com.example.pokedex.pokedex.viewmodel.ViewModel
@@ -18,9 +19,7 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     private lateinit var gridView: GridView
     private lateinit var gridViewAdapter: PokedexGridAdapter
-    private lateinit var flFragment: FrameLayout
-    private lateinit var pokemonFragment: PokemonFragment
-
+    private val pokemonFragment: PokemonFragment by lazy { PokemonFragment() }
     private lateinit var viewState: ViewState
 
     private val compositeDisposable = CompositeDisposable()
@@ -30,20 +29,18 @@ class MainActivity : AppCompatActivity(), ViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         setup()
+        setupFragment(savedInstanceState)
         viewModel.startApplication()
         compositeDisposable.add(viewModel.viewStateObservable
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { viewState ->
-                this.viewState = viewState
-                setNewViewState(viewState)
-            }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { viewState ->
+                    this.viewState = viewState
+                    setNewViewState(viewState)
+                }
         )
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.flFragment, pokemonFragment)
-            .addToBackStack(null)
-            .commit()
     }
 
     override fun setNewViewState(viewState: ViewState) {
@@ -57,7 +54,6 @@ class MainActivity : AppCompatActivity(), ViewListener {
     }
 
     private fun setup() {
-        setupFragment()
         gridView = findViewById(R.id.gridView)
         gridView.numColumns = 2
         gridViewAdapter = PokedexGridAdapter()
@@ -65,19 +61,25 @@ class MainActivity : AppCompatActivity(), ViewListener {
         onItemClick()
     }
 
-    private fun setupFragment() {
-        pokemonFragment = PokemonFragment()
-        flFragment = findViewById(R.id.flFragment)
+    private fun setupFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_container_view, pokemonFragment)
+                    .hide(pokemonFragment)
+                    .commit()
+        }
     }
 
     private fun onItemClick() {
         gridView.setOnItemClickListener { parent, view, position, id ->
-            gridView.visibility = GONE
+//            pokemonFragment.startFragment()
             pokemonFragment.setFragmentMembers(viewState, position)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, pokemonFragment)
-                .addToBackStack(null)
-                .commit()
+                    .replace(R.id.fragment_container_view, pokemonFragment)
+                    .addToBackStack(null)
+                    .show(pokemonFragment)
+                    .commit()
         }
     }
 }

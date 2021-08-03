@@ -4,145 +4,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:focusable="true"
     tools:context=".pokemon.view.PokemonFragment">
 
-        <ImageView
-            android:id="@+id/pokemonImageEnhanced"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.079" />
+    <ImageView
+        android:id="@+id/pokemonImageEnhanced"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079" />
 
-        <TextView
-            android:id="@+id/pokemonTypeOneTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pokemonTypeTwoTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pokemonImageEnhanced"
-            app:layout_constraintVertical_bias="0.076"
-            tools:text="Fire" />
+    <TextView
+        android:id="@+id/pokemonTypeOneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pokemonTypeTwoTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokemonImageEnhanced"
+        app:layout_constraintVertical_bias="0.076"
+        tools:text="Fire" />
 
-        <TextView
-            android:id="@+id/pokemonTypeTwoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pokemonTypeOneTextView"
-            app:layout_constraintTop_toBottomOf="@id/pokemonImageEnhanced"
-            app:layout_constraintVertical_bias="0.076"
-            tools:text="Wind" />
+    <TextView
+        android:id="@+id/pokemonTypeTwoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pokemonTypeOneTextView"
+        app:layout_constraintTop_toBottomOf="@id/pokemonImageEnhanced"
+        app:layout_constraintVertical_bias="0.076"
+        tools:text="Wind" />
 
-        <TextView
-            android:id="@+id/statOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"
-            tools:text="HP" />
+    <TextView
+        android:id="@+id/statOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        tools:text="HP" />
 
-        <TextView
-            android:id="@+id/statTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statOne"
-            app:layout_constraintVertical_bias="0.1"
-            tools:text="DEF" />
+    <TextView
+        android:id="@+id/statTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statOne"
+        app:layout_constraintVertical_bias="0.1"
+        tools:text="DEF" />
 
-        <TextView
-            android:id="@+id/statThree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statTwo"
-            app:layout_constraintVertical_bias="0.13"
-            tools:text="SPATK" />
+    <TextView
+        android:id="@+id/statThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statTwo"
+        app:layout_constraintVertical_bias="0.13"
+        tools:text="SPATK" />
 
-        <TextView
-            android:id="@+id/statFour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statThree"
-            app:layout_constraintVertical_bias="0.16"
-            tools:text="SPDEF" />
+    <TextView
+        android:id="@+id/statFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statThree"
+        app:layout_constraintVertical_bias="0.16"
+        tools:text="SPDEF" />
 
-        <TextView
-            android:id="@+id/statOneValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.269"
-            app:layout_constraintStart_toEndOf="@id/statOne"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.599"
-            tools:text="10" />
+    <TextView
+        android:id="@+id/statOneValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toEndOf="@id/statOne"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599"
+        tools:text="10" />
 
-        <TextView
-            android:id="@+id/statTwoValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.248"
-            app:layout_constraintStart_toEndOf="@id/statTwo"
-            app:layout_constraintTop_toBottomOf="@id/statOneValue"
-            app:layout_constraintVertical_bias="0.101"
-            tools:text="40" />
+    <TextView
+        android:id="@+id/statTwoValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toEndOf="@id/statTwo"
+        app:layout_constraintTop_toBottomOf="@id/statOneValue"
+        app:layout_constraintVertical_bias="0.101"
+        tools:text="40" />
 
-        <TextView
-            android:id="@+id/statThreeValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.202"
-            app:layout_constraintStart_toEndOf="@id/statThree"
-            app:layout_constraintTop_toBottomOf="@id/statTwoValue"
-            app:layout_constraintVertical_bias="0.128"
-            tools:text="230" />
+    <TextView
+        android:id="@+id/statThreeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toEndOf="@id/statThree"
+        app:layout_constraintTop_toBottomOf="@id/statTwoValue"
+        app:layout_constraintVertical_bias="0.128"
+        tools:text="230" />
 
-        <TextView
-            android:id="@+id/statFourValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.202"
-            app:layout_constraintStart_toEndOf="@id/statFour"
-            app:layout_constraintTop_toBottomOf="@id/statThreeValue"
-            app:layout_constraintVertical_bias="0.161"
-            tools:text="150" />
+    <TextView
+        android:id="@+id/statFourValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toEndOf="@id/statFour"
+        app:layout_constraintTop_toBottomOf="@id/statThreeValue"
+        app:layout_constraintVertical_bias="0.161"
+        tools:text="150" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

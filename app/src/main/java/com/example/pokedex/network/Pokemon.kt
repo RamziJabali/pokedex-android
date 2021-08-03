@@ -14,4 +14,4 @@ data class Pokemon(
     val pokemonStats: Array<PokemonStats>,
     @SerializedName("types")
     val pokemonTypes: Array<PokemonType>
-) 
+)

@@ -27,8 +27,8 @@ class PokemonFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_pokemon, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,31 +53,35 @@ class PokemonFragment : Fragment() {
     fun setFragmentMembers(viewState: ViewState, position: Int) {
         with(viewState) {
             Picasso.get()
-                .load("https://pokeres.bastionbot.org/images/pokemon/${gridProperties[position].itemOrderNumber}.png")
-                .into(pokemonEnhancedImageView)
+                    .load("https://pokeres.bastionbot.org/images/pokemon/${gridProperties[position].itemOrderNumber}.png")
+                    .into(pokemonEnhancedImageView)
             pokemonType1.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonType[0].pokemonSpecificType.pokemonTypeName
-            if (pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonType.size > 1) {
+                    pokemonArrayList[position].pokemonType[0].pokemonSpecificType.pokemonTypeName
+            if (pokemonArrayList[position].pokemonType.size > 1) {
                 pokemonType2.text =
-                    pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonType[1].pokemonSpecificType.pokemonTypeName
+                        pokemonArrayList[position].pokemonType[1].pokemonSpecificType.pokemonTypeName
             }
             pokemonStat1Name.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[0].pokemonStatType.statTypeName
+                    pokemonArrayList[position].pokemonStats[0].pokemonStatType.statTypeName
             pokemonStat2Name.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[1].pokemonStatType.statTypeName
+                    pokemonArrayList[position].pokemonStats[1].pokemonStatType.statTypeName
             pokemonStat3Name.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[2].pokemonStatType.statTypeName
+                    pokemonArrayList[position].pokemonStats[2].pokemonStatType.statTypeName
             pokemonStat4Name.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[3].pokemonStatType.statTypeName
+                    pokemonArrayList[position].pokemonStats[3].pokemonStatType.statTypeName
 
             pokemonStat1Value.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[0].pokemonBaseStat.toString()
+                    pokemonArrayList[position].pokemonStats[0].pokemonBaseStat.toString()
             pokemonStat2Value.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[1].pokemonBaseStat.toString()
+                    pokemonArrayList[position].pokemonStats[1].pokemonBaseStat.toString()
             pokemonStat3Value.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[2].pokemonBaseStat.toString()
+                    pokemonArrayList[position].pokemonStats[2].pokemonBaseStat.toString()
             pokemonStat4Value.text =
-                pokemonArrayList[gridProperties[position].itemOrderNumber].pokemonStats[3].pokemonBaseStat.toString()
+                    pokemonArrayList[position].pokemonStats[3].pokemonBaseStat.toString()
         }
+    }
+
+    fun startFragment() {
+
     }
 }

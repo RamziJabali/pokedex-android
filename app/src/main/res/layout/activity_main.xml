@@ -22,8 +22,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="hello" />
 
-    <FrameLayout
-        android:id="@+id/flFragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
