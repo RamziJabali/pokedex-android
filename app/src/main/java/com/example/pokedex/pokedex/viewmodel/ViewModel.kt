@@ -3,9 +3,7 @@ package com.example.pokedex.pokedex.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
-import com.example.pokedex.network.Pokemon
 import com.example.pokedex.pokedex.view.GridProperties
-import com.example.pokedex.pokemon.viewmodel.PokemonViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -20,7 +18,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
 
     fun startApplication() {
-        for (apiCallNumber in (0 until 11)) {
+        for (apiCallNumber in (0 until 21)) {
             makeApiCall(apiCallNumber)
         }
     }
@@ -32,27 +30,19 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     private fun makeApiCall(callNumber: Int) {
         compositeDisposable.add(
-            useCase.getPokedex(callNumber)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { pokemon -> onSuccess(pokemon, callNumber) },
-                    { error -> onFailure(error.localizedMessage) })
+                useCase.getPokedex(callNumber)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                { pokemon -> onSuccess(pokemon.pokemonName, callNumber) },
+                                { error -> onFailure(error.localizedMessage) })
         )
     }
 
-    private fun onSuccess(pokemon: Pokemon, callNumber: Int) {
+    private fun onSuccess(pokemon: String, callNumber: Int) {
         val boardProperty = GridProperties(
-            itemText = pokemon.pokemonName,
-            itemOrderNumber = callNumber
-        )
-        viewState.pokemonArrayList.add(
-            PokemonViewState(
-                pokemonName = pokemon.pokemonName,
-                pokemonOrderNumber = pokemon.pokemonOrderNumber,
-                pokemonStats = pokemon.pokemonStats,
-                pokemonType = pokemon.pokemonTypes
-            )
+                itemText = pokemon,
+                itemOrderNumber = callNumber
         )
         viewState.gridProperties.add(boardProperty)
         invalidateView()

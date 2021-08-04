@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pokedex">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".PokedexApplication"
         android:allowBackup="true"
@@ -12,7 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokedex">
-        <activity android:name=".pokemon.PokemonActivity"></activity>
+
+        <activity
+            android:name=".pokemon.view.PokemonActivity"
+            android:parentActivityName=".pokedex.view.MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pokedex.view.MainActivity" />
+        </activity>
+
         <activity android:name=".pokedex.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,5 +28,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

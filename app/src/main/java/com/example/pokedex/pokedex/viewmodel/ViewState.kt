@@ -5,5 +5,4 @@ import com.example.pokedex.pokemon.viewmodel.PokemonViewState
 
 data class ViewState(
     var gridProperties: ArrayList<GridProperties> = ArrayList(),
-    var pokemonArrayList: ArrayList<PokemonViewState> = ArrayList()
 )
