@@ -114,11 +114,24 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statFive"
-        app:layout_constraintVertical_bias="0.21"
+        app:layout_constraintVertical_bias="0.384"
         tools:text="Speed" />
+
+    <TextView
+        android:id="@+id/statSixValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toEndOf="@id/statSix"
+        app:layout_constraintTop_toBottomOf="@id/statFiveValue"
+        app:layout_constraintVertical_bias="0.384"
+        tools:text="160" />
 
     <TextView
         android:id="@+id/statOneValue"
@@ -127,7 +140,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toEndOf="@id/statOne"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.599"
@@ -140,7 +153,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toEndOf="@id/statTwo"
         app:layout_constraintTop_toBottomOf="@id/statOneValue"
         app:layout_constraintVertical_bias="0.101"
@@ -153,7 +166,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toEndOf="@id/statThree"
         app:layout_constraintTop_toBottomOf="@id/statTwoValue"
         app:layout_constraintVertical_bias="0.128"
@@ -166,7 +179,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toEndOf="@id/statFour"
         app:layout_constraintTop_toBottomOf="@id/statThreeValue"
         app:layout_constraintVertical_bias="0.161"
@@ -179,23 +192,93 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toEndOf="@id/statFive"
         app:layout_constraintTop_toBottomOf="@id/statFourValue"
-        app:layout_constraintVertical_bias="0.161"
+        app:layout_constraintVertical_bias="0.193"
         tools:text="130" />
 
-    <TextView
-        android:id="@+id/statSixValue"
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:max="300"
+        android:minWidth="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toEndOf="@id/statSix"
-        app:layout_constraintTop_toBottomOf="@id/statFiveValue"
-        app:layout_constraintVertical_bias="0.161"
-        tools:text="160" />
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/statOneValue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.605" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="300"
+        android:minWidth="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toEndOf="@+id/statTwoValue"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_1"
+        app:layout_constraintVertical_bias="0.139" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="300"
+        android:minWidth="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toEndOf="@+id/statThreeValue"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_2"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="300"
+        android:minWidth="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/statFourValue"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_3"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="300"
+        android:minWidth="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/statFiveValue"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_4"
+        app:layout_constraintVertical_bias="0.275" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/horizontal_loading_bar_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="300"
+        android:minWidth="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/statSixValue"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_5"
+        app:layout_constraintVertical_bias="0.492" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
