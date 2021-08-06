@@ -46,10 +46,10 @@
         android:id="@+id/statOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="128dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6"
@@ -59,62 +59,64 @@
         android:id="@+id/statTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="96dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statOne"
         app:layout_constraintVertical_bias="0.1"
-        tools:text="Atc" />
+        tools:text="Attack" />
 
     <TextView
         android:id="@+id/statThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="81dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statTwo"
         app:layout_constraintVertical_bias="0.13"
-        tools:text="Def" />
+        tools:text="Defense" />
 
     <TextView
         android:id="@+id/statFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="27dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statThree"
-        app:layout_constraintVertical_bias="0.16"
-        tools:text="SPCATC" />
+        app:layout_constraintVertical_bias="0.161"
+        tools:text="Special-attack" />
 
     <TextView
         android:id="@+id/statFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statFour"
-        app:layout_constraintVertical_bias="0.19"
-        tools:text="SPCDEF" />
+        app:layout_constraintVertical_bias="0.193"
+        tools:text="Special-defense" />
 
     <TextView
         android:id="@+id/statSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="97dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statFive"
         app:layout_constraintVertical_bias="0.384"
@@ -127,10 +129,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statSix"
         app:layout_constraintTop_toBottomOf="@id/statFiveValue"
-        app:layout_constraintVertical_bias="0.384"
+        app:layout_constraintVertical_bias="0.4"
         tools:text="160" />
 
     <TextView
@@ -140,10 +142,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statOne"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599"
+        app:layout_constraintVertical_bias="0.6"
         tools:text="10" />
 
     <TextView
@@ -153,10 +155,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statTwo"
         app:layout_constraintTop_toBottomOf="@id/statOneValue"
-        app:layout_constraintVertical_bias="0.101"
+        app:layout_constraintVertical_bias="0.099"
         tools:text="40" />
 
     <TextView
@@ -166,10 +168,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statThree"
         app:layout_constraintTop_toBottomOf="@id/statTwoValue"
-        app:layout_constraintVertical_bias="0.128"
+        app:layout_constraintVertical_bias="0.129"
         tools:text="230" />
 
     <TextView
@@ -179,10 +181,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statFour"
         app:layout_constraintTop_toBottomOf="@id/statThreeValue"
-        app:layout_constraintVertical_bias="0.161"
+        app:layout_constraintVertical_bias="0.162"
         tools:text="150" />
 
     <TextView
@@ -192,92 +194,90 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/statFive"
         app:layout_constraintTop_toBottomOf="@id/statFourValue"
-        app:layout_constraintVertical_bias="0.193"
+        app:layout_constraintVertical_bias="0.203"
         tools:text="130" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_1"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/statOneValue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.605" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_2"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toEndOf="@+id/statTwoValue"
         app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_1"
         app:layout_constraintVertical_bias="0.139" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_3"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toEndOf="@+id/statThreeValue"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_2"
         app:layout_constraintVertical_bias="0.173" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_4"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/statFourValue"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_3"
         app:layout_constraintVertical_bias="0.218" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_5"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/statFiveValue"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_4"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.284" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/horizontal_loading_bar_6"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="300"
         android:minWidth="150dp"
+        android:paddingEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/statSixValue"
         app:layout_constraintTop_toBottomOf="@id/horizontal_loading_bar_5"
         app:layout_constraintVertical_bias="0.492" />
 
