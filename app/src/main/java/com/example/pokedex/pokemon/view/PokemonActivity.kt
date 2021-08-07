@@ -107,7 +107,7 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
         }
 
         Picasso.get()
-            .load(pokemonViewState.pokemonImageURL+pokemonId+pokemonViewState.pokemonImageDotPNG)
+            .load(pokemonViewState.pokemonImageURL)
             .into(pokemonEnhancedImageView)
 
         pokemonType1.text = pokemonViewState.pokemonStatType1String

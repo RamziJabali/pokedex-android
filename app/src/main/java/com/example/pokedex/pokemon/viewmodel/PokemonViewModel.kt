@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.network.Pokemon
-import com.example.pokedex.pokedex.viewmodel.ViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -29,14 +28,14 @@ class PokemonViewModel(private var useCase: UseCase) : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { pokemon -> onSuccess(pokemon) },
+                    { pokemon -> onSuccess(pokemon, pokemonId) },
                     { error -> onFailure(error.localizedMessage) })
         )
     }
 
-    private fun onSuccess(pokemon: Pokemon) {
+    private fun onSuccess(pokemon: Pokemon, pokemonId: Int) {
         pokemonViewState = pokemonViewState.copy(
-            pokemonImageURL = "https://pokeres.bastionbot.org/images/pokemon/",
+            pokemonImageURL = getCompleteImageURL(pokemonId.toString()),
             pokemonName = pokemon.pokemonName.capitalize(),
             pokemonOrderNumber = pokemon.pokemonOrderNumber,
             pokemonStat1 = pokemon.pokemonStats[0].pokemonBaseStat,
@@ -58,6 +57,14 @@ class PokemonViewModel(private var useCase: UseCase) : ViewModel() {
                 pokemonViewState.copy(pokemonStatType2String = pokemon.pokemonTypes[1].pokemonSpecificType.pokemonTypeName.toUpperCase())
         }
         invalidateView()
+    }
+
+    private fun getCompleteImageURL(id: String): String {
+        var newId = id
+        while (newId.length < 3) {
+            newId = "0$newId"
+        }
+        return pokemonViewState.pokemonImageURL + newId + pokemonViewState.pokemonImageDotPNG
     }
 
     private fun onFailure(localizedMessage: String?) {

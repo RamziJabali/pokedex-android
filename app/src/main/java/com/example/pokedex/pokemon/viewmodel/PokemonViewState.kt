@@ -4,7 +4,7 @@ import com.example.pokedex.network.PokemonStats
 import com.example.pokedex.network.PokemonType
 
 data class PokemonViewState(
-    val pokemonImageURL: String ="",
+    val pokemonImageURL: String ="https://assets.pokemon.com/assets/cms2/img/pokedex/full/",
     val pokemonImageDotPNG: String =".png",
     val pokemonName: String = "",
     val pokemonOrderNumber: Int = -1,

@@ -29,9 +29,8 @@ class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(gridProperties: GridProperties) {
         pokemonTextView.text = gridProperties.itemText
-        //pokemonImageView.setImageResource(gridProperties.itemImage)
         itemView.setBackgroundResource(gridProperties.itemBackgroundColor)
-        Picasso.get().load("https://pokeres.bastionbot.org/images/pokemon/${gridProperties.itemOrderNumber}.png").into(pokemonImageView)
+        Picasso.get().load("https://assets.pokemon.com/assets/cms2/img/pokedex/full/${gridProperties.itemOrderNumberString}.png").into(pokemonImageView)
         itemView.invalidate()
     }
 

@@ -23,7 +23,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     fun startApplication() {
         for (apiCallNumber in (0 until 21)) {
-                makeApiCall(apiCallNumber)
+            makeApiCall(apiCallNumber)
         }
     }
 
@@ -34,20 +34,27 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     private fun makeApiCall(callNumber: Int) {
         compositeDisposable.add(
-                useCase.getPokedex(callNumber)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                { pokemon -> onSuccess(pokemon.pokemonName, callNumber) },
-                                { error -> onFailure(error.localizedMessage) })
+            useCase.getPokedex(callNumber)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { pokemon -> onSuccess(pokemon.pokemonName, callNumber) },
+                    { error -> onFailure(error.localizedMessage) })
         )
     }
 
     private fun onSuccess(pokemon: String, callNumber: Int) {
-        val boardProperty = GridProperties(
-                itemText = pokemon.capitalize(Locale(pokemon)),
-                itemOrderNumber = callNumber
+        var itemOrderNumberString = callNumber.toString()
+        var boardProperty = GridProperties(
+            itemText = pokemon.capitalize(Locale(pokemon)),
+            itemOrderNumber = callNumber
         )
+
+        while (itemOrderNumberString.length < 3) {
+            itemOrderNumberString = "0$itemOrderNumberString"
+        }
+        boardProperty = boardProperty.copy(itemOrderNumberString = itemOrderNumberString)
+
         viewState.gridProperties.add(boardProperty)
         invalidateView()
     }
