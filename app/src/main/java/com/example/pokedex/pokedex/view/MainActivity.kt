@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity(), ViewListener {
         setup()
         viewModel.startApplication()
         compositeDisposable.add(viewModel.viewStateObservable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { viewState ->
-                    this.viewState = viewState
-                    setNewViewState(viewState)
-                }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { viewState ->
+                this.viewState = viewState
+                setNewViewState(viewState)
+            }
         )
     }
 

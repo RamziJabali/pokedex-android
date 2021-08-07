@@ -66,7 +66,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statOne"
         app:layout_constraintVertical_bias="0.1"
-        tools:text="Attack" />
+        tools:text="ATTACK" />
 
     <TextView
         android:id="@+id/statThree"
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statTwo"
         app:layout_constraintVertical_bias="0.13"
-        tools:text="Defense" />
+        tools:text="DEFENSE" />
 
     <TextView
         android:id="@+id/statFour"
@@ -93,7 +93,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statThree"
         app:layout_constraintVertical_bias="0.161"
-        tools:text="Special-attack" />
+        tools:text="SPECIAL-ATTACK" />
 
     <TextView
         android:id="@+id/statFive"
@@ -107,7 +107,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statFour"
         app:layout_constraintVertical_bias="0.193"
-        tools:text="Special-defense" />
+        tools:text="SPECIAL-DEFENSE" />
 
     <TextView
         android:id="@+id/statSix"
@@ -120,17 +120,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statFive"
         app:layout_constraintVertical_bias="0.384"
-        tools:text="Speed" />
+        tools:text="SPEED" />
 
     <TextView
         android:id="@+id/statSixValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statSix"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_6"
         app:layout_constraintTop_toBottomOf="@id/statFiveValue"
         app:layout_constraintVertical_bias="0.4"
         tools:text="160" />
@@ -140,10 +141,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statOne"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6"
         tools:text="10" />
@@ -153,10 +154,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statTwo"
         app:layout_constraintTop_toBottomOf="@id/statOneValue"
         app:layout_constraintVertical_bias="0.099"
         tools:text="40" />
@@ -166,10 +167,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statThree"
         app:layout_constraintTop_toBottomOf="@id/statTwoValue"
         app:layout_constraintVertical_bias="0.129"
         tools:text="230" />
@@ -179,10 +180,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statFour"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_4"
         app:layout_constraintTop_toBottomOf="@id/statThreeValue"
         app:layout_constraintVertical_bias="0.162"
         tools:text="150" />
@@ -192,10 +194,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/statFive"
+        app:layout_constraintEnd_toStartOf="@id/horizontal_loading_bar_5"
         app:layout_constraintTop_toBottomOf="@id/statFourValue"
         app:layout_constraintVertical_bias="0.203"
         tools:text="130" />
