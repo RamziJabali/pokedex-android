@@ -4,8 +4,25 @@ import com.example.pokedex.network.PokemonStats
 import com.example.pokedex.network.PokemonType
 
 data class PokemonViewState(
+    val pokemonImageURL: String ="",
+    val pokemonImageDotPNG: String =".png",
     val pokemonName: String = "",
     val pokemonOrderNumber: Int = -1,
-    val pokemonStats: Array<PokemonStats> = emptyArray(),
-    val pokemonType: Array<PokemonType> = emptyArray()
+
+    val pokemonStat1: Int = -1,
+    val pokemonStat2: Int = -1,
+    val pokemonStat3: Int = -1,
+    val pokemonStat4: Int = -1,
+    val pokemonStat5: Int = -1,
+    val pokemonStat6: Int = -1,
+
+    val pokemonStat1String: String = "",
+    val pokemonStat2String: String = "",
+    val pokemonStat3String: String = "",
+    val pokemonStat4String: String = "",
+    val pokemonStat5String: String = "",
+    val pokemonStat6String: String = "",
+
+    val pokemonStatType1String: String = "",
+    val pokemonStatType2String: String = ""
 )

@@ -95,37 +95,37 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
         }
 
         Picasso.get()
-            .load("https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png")
+            .load(pokemonViewState.pokemonImageURL+pokemonId+pokemonViewState.pokemonImageDotPNG)
             .into(pokemonEnhancedImageView)
-        pokemonType1.text = pokemonViewState.pokemonType[0].pokemonSpecificType.pokemonTypeName
 
-        if (pokemonViewState.pokemonType.size > 1) {
-            pokemonType2.text = pokemonViewState.pokemonType[1].pokemonSpecificType.pokemonTypeName
-        }
-        pokemonStat1Name.text = pokemonViewState.pokemonStats[0].pokemonStatType.statTypeName
-        pokemonStat2Name.text = pokemonViewState.pokemonStats[1].pokemonStatType.statTypeName
-        pokemonStat3Name.text = pokemonViewState.pokemonStats[2].pokemonStatType.statTypeName
-        pokemonStat4Name.text = pokemonViewState.pokemonStats[3].pokemonStatType.statTypeName
-        pokemonStat5Name.text = pokemonViewState.pokemonStats[4].pokemonStatType.statTypeName
-        pokemonStat6Name.text = pokemonViewState.pokemonStats[5].pokemonStatType.statTypeName
+        pokemonType1.text = pokemonViewState.pokemonStatType1String
 
-        pokemonStat1Value.text = pokemonViewState.pokemonStats[0].pokemonBaseStat.toString()
-        pokemonStatBar1.progress = pokemonViewState.pokemonStats[0].pokemonBaseStat
+        pokemonType2.text = pokemonViewState.pokemonStatType2String
 
-        pokemonStat2Value.text = pokemonViewState.pokemonStats[1].pokemonBaseStat.toString()
-        pokemonStatBar2.progress = pokemonViewState.pokemonStats[1].pokemonBaseStat
+        pokemonStat1Name.text = pokemonViewState.pokemonStat1String
+        pokemonStat2Name.text = pokemonViewState.pokemonStat2String
+        pokemonStat3Name.text = pokemonViewState.pokemonStat3String
+        pokemonStat4Name.text = pokemonViewState.pokemonStat4String
+        pokemonStat5Name.text = pokemonViewState.pokemonStat5String
+        pokemonStat6Name.text = pokemonViewState.pokemonStat6String
 
-        pokemonStat3Value.text = pokemonViewState.pokemonStats[2].pokemonBaseStat.toString()
-        pokemonStatBar3.progress = pokemonViewState.pokemonStats[2].pokemonBaseStat
+        pokemonStat1Value.text = pokemonViewState.pokemonStat1.toString()
+        pokemonStatBar1.progress = pokemonViewState.pokemonStat1
 
-        pokemonStat4Value.text = pokemonViewState.pokemonStats[3].pokemonBaseStat.toString()
-        pokemonStatBar4.progress = pokemonViewState.pokemonStats[3].pokemonBaseStat
+        pokemonStat2Value.text = pokemonViewState.pokemonStat2.toString()
+        pokemonStatBar2.progress = pokemonViewState.pokemonStat2
 
-        pokemonStat5Value.text = pokemonViewState.pokemonStats[4].pokemonBaseStat.toString()
-        pokemonStatBar5.progress = pokemonViewState.pokemonStats[4].pokemonBaseStat
+        pokemonStat3Value.text = pokemonViewState.pokemonStat3.toString()
+        pokemonStatBar3.progress = pokemonViewState.pokemonStat3
 
-        pokemonStat6Value.text = pokemonViewState.pokemonStats[5].pokemonBaseStat.toString()
-        pokemonStatBar6.progress = pokemonViewState.pokemonStats[5].pokemonBaseStat
+        pokemonStat4Value.text = pokemonViewState.pokemonStat4.toString()
+        pokemonStatBar4.progress = pokemonViewState.pokemonStat4
+
+        pokemonStat5Value.text = pokemonViewState.pokemonStat5.toString()
+        pokemonStatBar5.progress = pokemonViewState.pokemonStat5
+
+        pokemonStat6Value.text = pokemonViewState.pokemonStat6.toString()
+        pokemonStatBar6.progress = pokemonViewState.pokemonStat6
     }
 }
 
