@@ -3,7 +3,10 @@ package com.example.pokedex.pokemon.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Explode
 import android.util.Log
+import android.view.ViewDebug
+import android.view.Window
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -65,13 +68,24 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        with(window){
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            enterTransition = Explode()
+            exitTransition = Explode()
+            enterTransition.duration = 1000
+        }
+
         setContentView(R.layout.activity_pokemon)
+
         pokemonId = intent.getIntExtra(EXTRA_POKEMON_ID, -1)
         if (pokemonId == -1) {
             throw IllegalStateException("Pokemon ID is not found")
         }
         pokemonViewModel.getInformation(pokemonId)
+        monitoringViewState()
+    }
 
+    private fun monitoringViewState() {
         compositeDisposable.add(pokemonViewModel.pokemonViewStateObservable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

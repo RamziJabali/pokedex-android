@@ -1,5 +1,6 @@
 package com.example.pokedex.pokedex.view
 
+import android.app.ActivityOptions
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
@@ -58,7 +59,10 @@ class MainActivity : AppCompatActivity(), ViewListener {
     private fun onItemClick() {
         gridView.setOnItemClickListener { parent, view, position, id ->
             val pokeId = viewState.gridProperties[position].itemOrderNumber
-            startActivity(PokemonActivity.newInstance(this, pokeId))
+            startActivity(
+                PokemonActivity.newInstance(this, pokeId),
+                ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            )
         }
     }
 }
