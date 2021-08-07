@@ -11,6 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
+import java.util.*
 
 class ViewModel(private var useCase: UseCase) : ViewModel() {
 
@@ -22,7 +23,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     fun startApplication() {
         for (apiCallNumber in (0 until 21)) {
-            makeApiCall(apiCallNumber)
+                makeApiCall(apiCallNumber)
         }
     }
 
@@ -44,7 +45,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     private fun onSuccess(pokemon: String, callNumber: Int) {
         val boardProperty = GridProperties(
-                itemText = pokemon,
+                itemText = pokemon.capitalize(Locale(pokemon)),
                 itemOrderNumber = callNumber
         )
         viewState.gridProperties.add(boardProperty)
