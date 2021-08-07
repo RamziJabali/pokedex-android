@@ -37,7 +37,7 @@ class PokemonViewModel(private var useCase: UseCase) : ViewModel() {
     private fun onSuccess(pokemon: Pokemon) {
         pokemonViewState = pokemonViewState.copy(
             pokemonImageURL = "https://pokeres.bastionbot.org/images/pokemon/",
-            pokemonName = pokemon.pokemonName.toUpperCase(),
+            pokemonName = pokemon.pokemonName.capitalize(),
             pokemonOrderNumber = pokemon.pokemonOrderNumber,
             pokemonStat1 = pokemon.pokemonStats[0].pokemonBaseStat,
             pokemonStat2 = pokemon.pokemonStats[1].pokemonBaseStat,
