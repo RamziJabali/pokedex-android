@@ -9,6 +9,10 @@
   <img width="300" height="645" src="https://github.com/RamziJabali/pokedex-android/blob/main/ScreenShots/pokedexAppRunning.gif">
 </p>
 
+<p align="center">
+  <img src="https://github.com/RamziJabali/pokedex-android/blob/main/ScreenShots/summary.png">
+</p>
+
 ## Architecture
 - MVVM
 
@@ -21,3 +25,5 @@
 - [Gson](https://github.com/google/gson)
 - [MockK](https://mockk.io/)
 
+## API
+- [PokeApi](https://pokeapi.co/)
