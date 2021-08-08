@@ -22,7 +22,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
 
     fun startApplication() {
-        for (apiCallNumber in (0 until 21)) {
+        for (apiCallNumber in (99 until 121)) {
             makeApiCall(apiCallNumber)
         }
     }
