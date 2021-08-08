@@ -11,7 +11,7 @@
 - [Koin](https://insert-koin.io/)
 - [Retrofit](https://square.github.io/retrofit/)
 - [OkHttp](https://square.github.io/okhttp/)
-- [picasso](https://github.com/square/picasso)
+- [Picasso](https://github.com/square/picasso)
 - [Gson](https://github.com/google/gson)
 - [MockK](https://mockk.io/)
 
