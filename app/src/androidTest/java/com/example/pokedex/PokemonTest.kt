@@ -81,4 +81,8 @@ class PokemonTest {
     fun pokemonStat6ValueTest() {
         assertTrue(pokemonActivity.pokemonStat6Value.text.isNotBlank())
     }
+    @Test
+    fun pokemonImageTest() {
+        assertTrue(pokemonActivity.pokemonEnhancedImageView.drawable != null)
+    }
 }

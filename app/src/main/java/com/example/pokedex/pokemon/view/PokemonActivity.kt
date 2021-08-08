@@ -39,7 +39,8 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
     val pokemonViewModel: PokemonViewModel by viewModel()
     private var pokemonId: Int = -1
 
-    private val pokemonEnhancedImageView: ImageView by lazy { findViewById(R.id.pokemonImageEnhanced) }
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonEnhancedImageView: ImageView by lazy { findViewById(R.id.pokemonImageEnhanced) }
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val pokemonType1: TextView by lazy { findViewById(R.id.pokemonTypeOneTextView) }
