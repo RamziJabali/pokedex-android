@@ -1,4 +1,10 @@
 <h1 align="center">Pokedéx</h1>
+
+<p align="center">
+  <img width="300" height="645" src="https://github.com/RamziJabali/pokedex-android/blob/main/ScreenShots/Screen%20Shot%202021-08-07%20at%209.35.53%20PM.png">
+  <img width="300" height="645" src="https://github.com/RamziJabali/pokedex-android/blob/main/ScreenShots/Screen%20Shot%202021-08-07%20at%209.36.08%20PM.png">
+</p>
+
 <p align="center">
   <img width="300" height="645" src="https://github.com/RamziJabali/pokedex-android/blob/main/ScreenShots/pokedexAppRunning.gif">
 </p>
