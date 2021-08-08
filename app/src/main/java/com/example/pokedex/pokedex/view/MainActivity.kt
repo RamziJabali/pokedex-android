@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
+import androidx.annotation.VisibleForTesting
 import com.example.pokedex.R
 import com.example.pokedex.pokemon.view.PokemonActivity
 import com.example.pokedex.pokedex.viewmodel.ViewModel
@@ -17,12 +18,14 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity(), ViewListener {
 
     private lateinit var gridView: GridView
-    private lateinit var gridViewAdapter: PokedexGridAdapter
 
-    private val compositeDisposable = CompositeDisposable()
-    private val viewModel: ViewModel by viewModel()
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    lateinit var gridViewAdapter: PokedexGridAdapter
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val viewModel: ViewModel by viewModel()
     private var viewState: ViewState = ViewState()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

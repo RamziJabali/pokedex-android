@@ -3,9 +3,9 @@ package com.example.pokedex.pokedex.view
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.annotation.VisibleForTesting
 
 class PokedexGridAdapter : BaseAdapter() {
-
     private var gridProperties: Array<GridProperties> = emptyArray()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
