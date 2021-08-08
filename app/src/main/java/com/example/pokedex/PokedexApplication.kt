@@ -3,12 +3,13 @@ package com.example.pokedex
 import android.app.Application
 import com.example.pokedex.koin.networkModule
 import com.example.pokedex.koin.pokedexModule
+import com.example.pokedex.koin.pokemonModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class PokedexApplication: Application() {
-    private val modules = listOf(networkModule, pokedexModule)
+    private val modules = listOf(networkModule, pokedexModule, pokemonModule)
 
     override fun onCreate() {
         super.onCreate()
