@@ -5,11 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.transition.Explode
 import android.util.Log
-import android.view.ViewDebug
 import android.view.Window
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pokedex.R
 import com.example.pokedex.pokemon.viewmodel.PokemonViewModel
@@ -35,27 +35,53 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
 
     }
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonViewModel: PokemonViewModel by viewModel()
     private var pokemonId: Int = -1
-    private val pokemonViewModel: PokemonViewModel by viewModel()
 
     private val pokemonEnhancedImageView: ImageView by lazy { findViewById(R.id.pokemonImageEnhanced) }
 
-    private val pokemonType1: TextView by lazy { findViewById(R.id.pokemonTypeOneTextView) }
-    private val pokemonType2: TextView by lazy { findViewById(R.id.pokemonTypeTwoTextView) }
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonType1: TextView by lazy { findViewById(R.id.pokemonTypeOneTextView) }
 
-    private val pokemonStat1Name: TextView by lazy { findViewById(R.id.statOne) }
-    private val pokemonStat2Name: TextView by lazy { findViewById(R.id.statTwo) }
-    private val pokemonStat3Name: TextView by lazy { findViewById(R.id.statThree) }
-    private val pokemonStat4Name: TextView by lazy { findViewById(R.id.statFour) }
-    private val pokemonStat5Name: TextView by lazy { findViewById(R.id.statFive) }
-    private val pokemonStat6Name: TextView by lazy { findViewById(R.id.statSix) }
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonType2: TextView by lazy { findViewById(R.id.pokemonTypeTwoTextView) }
 
-    private val pokemonStat1Value: TextView by lazy { findViewById(R.id.statOneValue) }
-    private val pokemonStat2Value: TextView by lazy { findViewById(R.id.statTwoValue) }
-    private val pokemonStat3Value: TextView by lazy { findViewById(R.id.statThreeValue) }
-    private val pokemonStat4Value: TextView by lazy { findViewById(R.id.statFourValue) }
-    private val pokemonStat5Value: TextView by lazy { findViewById(R.id.statFiveValue) }
-    private val pokemonStat6Value: TextView by lazy { findViewById(R.id.statSixValue) }
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat1Name: TextView by lazy { findViewById(R.id.statOne) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat2Name: TextView by lazy { findViewById(R.id.statTwo) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat3Name: TextView by lazy { findViewById(R.id.statThree) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat4Name: TextView by lazy { findViewById(R.id.statFour) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat5Name: TextView by lazy { findViewById(R.id.statFive) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat6Name: TextView by lazy { findViewById(R.id.statSix) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat1Value: TextView by lazy { findViewById(R.id.statOneValue) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat2Value: TextView by lazy { findViewById(R.id.statTwoValue) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat3Value: TextView by lazy { findViewById(R.id.statThreeValue) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat4Value: TextView by lazy { findViewById(R.id.statFourValue) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat5Value: TextView by lazy { findViewById(R.id.statFiveValue) }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val pokemonStat6Value: TextView by lazy { findViewById(R.id.statSixValue) }
 
     private val pokemonStatBar1: ProgressBar by lazy { findViewById(R.id.horizontal_loading_bar_1) }
     private val pokemonStatBar2: ProgressBar by lazy { findViewById(R.id.horizontal_loading_bar_2) }
@@ -68,7 +94,7 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        with(window){
+        with(window) {
             requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
             enterTransition = Explode()
             exitTransition = Explode()
@@ -90,16 +116,16 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { pokemonViewState -> setFragmentMembers(pokemonViewState) },
+                { pokemonViewState -> setPokemonViewElements(pokemonViewState) },
                 { error -> Log.e(TAG, error.localizedMessage ?: "Error") }
             ))
     }
 
     override fun setNewViewState(pokemonViewState: PokemonViewState) {
-        setFragmentMembers(pokemonViewState)
+        setPokemonViewElements(pokemonViewState)
     }
 
-    private fun setFragmentMembers(pokemonViewState: PokemonViewState) {
+    private fun setPokemonViewElements(pokemonViewState: PokemonViewState) {
         var actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
 
         if (actionBar != null) {

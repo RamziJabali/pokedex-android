@@ -1,6 +1,8 @@
 package com.example.pokedex
 
+import androidx.core.content.ContextCompat.startActivity
 import com.example.pokedex.pokedex.view.MainActivity
+import com.example.pokedex.pokemon.view.PokemonActivity
 import io.mockk.mockk
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -11,7 +13,7 @@ class PokedexTest {
     private lateinit var mainActivity: MainActivity
 
     @Before
-    fun setup(){
+    fun setup() {
         mainActivity = mockk(relaxed = true)
         mainActivity.viewModel.startApplication()
     }

@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val viewModel: ViewModel by viewModel()
-    private var viewState: ViewState = ViewState()
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    var viewState: ViewState = ViewState()
+
     private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
