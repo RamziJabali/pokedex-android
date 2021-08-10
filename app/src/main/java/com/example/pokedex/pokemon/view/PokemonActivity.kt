@@ -99,7 +99,8 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
             requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
             enterTransition = Explode()
             exitTransition = Explode()
-            enterTransition.duration = 1000
+            enterTransition.duration = 500
+            exitTransition.duration = 500
         }
 
         setContentView(R.layout.activity_pokemon)

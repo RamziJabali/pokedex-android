@@ -1,8 +1,5 @@
-package com.example.pokedex.network
+package com.example.pokedex.network.Pokemon
 
-import android.os.Parcel
-import android.os.Parcelable
-import androidx.versionedparcelable.ParcelField
 import com.google.gson.annotations.SerializedName
 
 data class Pokemon(

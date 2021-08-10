@@ -1,8 +1,5 @@
 package com.example.pokedex.pokemon.viewmodel
 
-import com.example.pokedex.network.PokemonStats
-import com.example.pokedex.network.PokemonType
-
 data class PokemonViewState(
     val pokemonImageURL: String ="https://assets.pokemon.com/assets/cms2/img/pokedex/full/",
     val pokemonImageDotPNG: String =".png",

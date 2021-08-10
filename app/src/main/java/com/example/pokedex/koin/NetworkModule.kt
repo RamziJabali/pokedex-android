@@ -1,14 +1,13 @@
 package com.example.pokedex.koin
 
 import com.example.pokedex.network.JsonPokemonApi
-import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://pokeapi.co/"
+const val BASE_URL = "https://pokeapi.co/api/v2/"
 
 val networkModule = module {
 
@@ -29,10 +28,6 @@ val networkModule = module {
 
     single<GsonConverterFactory> {
         GsonConverterFactory.create()
-    }
-
-    single<Gson> {
-        Gson()
     }
 
     single<RxJava2CallAdapterFactory> {

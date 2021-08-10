@@ -3,7 +3,7 @@ package com.example.pokedex.pokemon.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.model.UseCase
-import com.example.pokedex.network.Pokemon
+import com.example.pokedex.network.Pokemon.Pokemon
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -24,7 +24,7 @@ class PokemonViewModel(private var useCase: UseCase) : ViewModel() {
 
     fun getInformation(pokemonId: Int) {
         compositeDisposable.add(
-            useCase.getPokedex(pokemonId)
+            useCase.getPokemon(pokemonId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
