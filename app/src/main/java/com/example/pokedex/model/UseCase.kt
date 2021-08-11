@@ -1,13 +1,42 @@
 package com.example.pokedex.model
 
 import com.example.pokedex.network.Pokedex.BasePokemon
-import com.example.pokedex.network.Pokemon.Pokemon
+import com.example.pokedex.network.Pokemon.PokemonType
 import io.reactivex.Observable
 import java.util.*
 import kotlin.collections.ArrayList
 
 class UseCase(private val pokedexRepo: PokedexRepo) {
-    fun getPokemon(pokemonId: Int): Observable<Pokemon> = pokedexRepo.getPokemon(pokemonId)
+    fun getPokemon(pokemonId: Int): Observable<ModifiedPokemon> =
+        pokedexRepo.getPokemon(pokemonId).map { pokemon ->
+            ModifiedPokemon(
+                pokemonImageURL = getCompletedPokemonImageURL(pokemonId.toString()),
+                pokemonName = pokemon.pokemonName.capitalize(),
+                pokemonStat1 = pokemon.pokemonStats[0].pokemonBaseStat,
+                pokemonStat2 = pokemon.pokemonStats[1].pokemonBaseStat,
+                pokemonStat3 = pokemon.pokemonStats[2].pokemonBaseStat,
+                pokemonStat4 = pokemon.pokemonStats[3].pokemonBaseStat,
+                pokemonStat5 = pokemon.pokemonStats[4].pokemonBaseStat,
+                pokemonStat6 = pokemon.pokemonStats[5].pokemonBaseStat,
+                pokemonStat1String = pokemon.pokemonStats[0].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStat2String = pokemon.pokemonStats[1].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStat3String = pokemon.pokemonStats[2].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStat4String = pokemon.pokemonStats[3].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStat5String = pokemon.pokemonStats[4].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStat6String = pokemon.pokemonStats[5].pokemonStatType.statTypeName.toUpperCase(),
+                pokemonStatType1String = pokemon.pokemonTypes[0].pokemonSpecificType.pokemonTypeName.toUpperCase(),
+                pokemonStatType2String = doesItExist(pokemon.pokemonTypes)
+            )
+        }
+
+    private fun doesItExist(pokemonTypes: Array<PokemonType>): String{
+        if (pokemonTypes.size>1){
+            return pokemonTypes[1].pokemonSpecificType.pokemonTypeName.toUpperCase()
+        }
+        return ""
+    }
+
+
     fun getPokedex(limit: Int, offset: Int): Observable<BasePokedex> =
         pokedexRepo.getPokedex(limit, offset)
             .map { pokedex ->
@@ -50,6 +79,11 @@ class UseCase(private val pokedexRepo: PokedexRepo) {
             fixedId = "${url[index]}$fixedId"
             index -= 1
         }
-        return fixedId.padStart(3,'0')
+        return fixedId.padStart(3, '0')
     }
+
+    private fun getCompletedPokemonImageURL(id: String): String {
+        return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id.padStart(3, '0')}.png"
+    }
+
 }

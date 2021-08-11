@@ -1,10 +1,8 @@
-package com.example.pokedex.pokemon.viewmodel
+package com.example.pokedex.model
 
-data class PokemonViewState(
-    val pokemonImageURL: String ="",
+data class ModifiedPokemon(
+    val pokemonImageURL: String = "",
     val pokemonName: String = "",
-    val pokemonOrderNumber: Int = -1,
-
     val pokemonStat1: Int = -1,
     val pokemonStat2: Int = -1,
     val pokemonStat3: Int = -1,
@@ -21,4 +19,5 @@ data class PokemonViewState(
 
     val pokemonStatType1String: String = "",
     val pokemonStatType2String: String = ""
+
 )
