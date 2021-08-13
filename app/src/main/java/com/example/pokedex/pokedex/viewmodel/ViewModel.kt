@@ -12,6 +12,10 @@ import io.reactivex.subjects.BehaviorSubject
 
 class ViewModel(private var useCase: UseCase) : ViewModel() {
 
+    companion object {
+        private var limit = 10
+        private var offset = 10
+    }
 
     val viewStateObservable = BehaviorSubject.create<ViewState>()
 
@@ -19,7 +23,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
 
     fun startApplication() {
-        makeApiCall()
+        makeApiCall(0, 20)
     }
 
     override fun onCleared() {
@@ -27,9 +31,9 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
         compositeDisposable.clear()
     }
 
-    private fun makeApiCall() {
+    private fun makeApiCall(offset: Int, limit: Int) {
         compositeDisposable.add(
-            useCase.getPokedex(10, 20)
+            useCase.getPokedex(offset, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -57,6 +61,11 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     private fun invalidateView() {
         viewStateObservable.onNext(viewState)
+    }
+
+    fun onPageEnd() {
+        offset += 10
+        makeApiCall(offset, limit)
     }
 
 }

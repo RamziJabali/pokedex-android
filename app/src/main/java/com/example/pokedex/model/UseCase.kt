@@ -37,8 +37,8 @@ class UseCase(private val pokedexRepo: PokedexRepo) {
     }
 
 
-    fun getPokedex(limit: Int, offset: Int): Observable<BasePokedex> =
-        pokedexRepo.getPokedex(limit, offset)
+    fun getPokedex(offset: Int, limit: Int): Observable<BasePokedex> =
+        pokedexRepo.getPokedex(offset, limit)
             .map { pokedex ->
                 BasePokedex(
                     pokemonName = pokedexPokemonNameArrayElementFormatting(pokedex.pokedex),

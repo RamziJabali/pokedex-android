@@ -14,5 +14,5 @@ interface JsonPokemonApi {
 
 //    @GET("pokemon?limit={limit}&offset=0")
     @GET("pokemon")
-    fun getPokedex(@Query("limit") limit: Int, @Query("offset") offset: Int): Observable<Pokedex>
+    fun getPokedex(@Query("offset") offset: Int, @Query("limit") limit: Int): Observable<Pokedex>
 }

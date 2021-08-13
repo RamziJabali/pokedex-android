@@ -7,5 +7,5 @@ import io.reactivex.Observable
 
 class PokedexRepo(private val jsonPokemonApi: JsonPokemonApi) {
     fun getPokemon(pokemonId: Int): Observable<Pokemon> = jsonPokemonApi.getPokemon(pokemonId)
-    fun getPokedex(limit: Int, offset: Int): Observable<Pokedex> = jsonPokemonApi.getPokedex(limit,offset)
+    fun getPokedex( offset: Int, limit: Int): Observable<Pokedex> = jsonPokemonApi.getPokedex(offset, limit)
 }
