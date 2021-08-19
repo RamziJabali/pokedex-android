@@ -1,6 +1,6 @@
 package com.example.pokedex.koin
 
-import com.example.pokedex.network.JsonPokemonApi
+import com.example.pokedex.network.PokemonApi
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -11,7 +11,7 @@ const val BASE_URL = "https://pokeapi.co/api/v2/"
 
 val networkModule = module {
 
-    single<JsonPokemonApi> { get<Retrofit>().create(JsonPokemonApi::class.java) }
+    single<PokemonApi> { get<Retrofit>().create(PokemonApi::class.java) }
 
     single<Retrofit> {
         Retrofit.Builder()

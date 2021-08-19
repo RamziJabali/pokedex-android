@@ -25,12 +25,12 @@ class UseCase(private val pokedexRepo: PokedexRepo) {
                 pokemonStat5String = pokemon.pokemonStats[4].pokemonStatType.statTypeName.toUpperCase(),
                 pokemonStat6String = pokemon.pokemonStats[5].pokemonStatType.statTypeName.toUpperCase(),
                 pokemonStatType1String = pokemon.pokemonTypes[0].pokemonSpecificType.pokemonTypeName.toUpperCase(),
-                pokemonStatType2String = doesItExist(pokemon.pokemonTypes)
+                pokemonStatType2String = getSecondPokemonType(pokemon.pokemonTypes)
             )
         }
 
-    private fun doesItExist(pokemonTypes: Array<PokemonType>): String{
-        if (pokemonTypes.size>1){
+    private fun getSecondPokemonType(pokemonTypes: Array<PokemonType>): String {
+        if (pokemonTypes.size > 1) {
             return pokemonTypes[1].pokemonSpecificType.pokemonTypeName.toUpperCase()
         }
         return ""
@@ -77,7 +77,7 @@ class UseCase(private val pokedexRepo: PokedexRepo) {
         var index = url.length - 2
         while (url[index].isDigit()) {
             fixedId = "${url[index]}$fixedId"
-            index -= 1
+            index--
         }
         return fixedId.padStart(3, '0')
     }

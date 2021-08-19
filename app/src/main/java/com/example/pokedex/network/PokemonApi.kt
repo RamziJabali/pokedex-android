@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface JsonPokemonApi {
+interface PokemonApi {
 
     @GET("pokemon/{id}")
     fun getPokemon(@Path("id") id: Int): Observable<Pokemon>

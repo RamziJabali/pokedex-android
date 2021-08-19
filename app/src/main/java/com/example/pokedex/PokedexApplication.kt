@@ -2,8 +2,8 @@ package com.example.pokedex
 
 import android.app.Application
 import com.example.pokedex.koin.networkModule
-import com.example.pokedex.koin.pokedexModule
-import com.example.pokedex.koin.pokemonModule
+import com.example.pokedex.pokedex.pokedexkoinmodule.pokedexModule
+import com.example.pokedex.pokemon.pokemonkoinmodule.pokemonModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

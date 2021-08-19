@@ -5,4 +5,6 @@ import com.example.pokedex.pokemon.viewmodel.PokemonViewState
 
 data class ViewState(
     var gridProperties: ArrayList<GridProperties> = ArrayList(),
+    var launchActivity: Boolean = false,
+    var pokeId: Int = -1
 )

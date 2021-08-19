@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.AbsListView
 import android.widget.GridView
 import androidx.annotation.VisibleForTesting
-import androidx.recyclerview.widget.RecyclerView
+import com.example.pokedex.BuildConfig
 import com.example.pokedex.R
 import com.example.pokedex.pokemon.view.PokemonActivity
 import com.example.pokedex.pokedex.viewmodel.ViewModel
@@ -51,6 +51,13 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     override fun setNewViewState(viewState: ViewState) {
         gridViewAdapter.setGridItems(viewState.gridProperties)
+        if(viewState.launchActivity){
+            viewState.launchActivity = false
+            startActivity(
+                PokemonActivity.newInstance(this, viewState.pokeId),
+                ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            )
+        }
     }
 
     override fun onDestroy() {
@@ -69,7 +76,7 @@ class MainActivity : AppCompatActivity(), ViewListener {
     private fun onScrolled() {
         gridView.setOnScrollListener(object: AbsListView.OnScrollListener{
             override fun onScrollStateChanged(view: AbsListView?, scrollState: Int) {
-                Log.i("Scrolling", "Scrolling Pókedex Page")
+                if(BuildConfig.DEBUG) Log.d("Scrolling", "Scrolling Pókedex Page")
             }
 
             override fun onScroll(
@@ -88,11 +95,7 @@ class MainActivity : AppCompatActivity(), ViewListener {
 
     private fun onItemClick() {
         gridView.setOnItemClickListener { parent, view, position, id ->
-            val pokeId = viewState.gridProperties[position].itemOrderNumber
-            startActivity(
-                PokemonActivity.newInstance(this, pokeId),
-                ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            )
+            viewModel.launchActivity(viewState.gridProperties[position].itemOrderNumber)
         }
     }
 }

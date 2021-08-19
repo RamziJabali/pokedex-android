@@ -2,6 +2,7 @@ package com.example.pokedex.pokemon.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.pokedex.BuildConfig
 import com.example.pokedex.model.ModifiedPokemon
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.network.Pokemon.Pokemon
@@ -58,7 +59,7 @@ class PokemonViewModel(private var useCase: UseCase) : ViewModel() {
 
 
     private fun onFailure(localizedMessage: String?) {
-        Log.e("PokemonViewModel", localizedMessage!!)
+        if (BuildConfig.DEBUG) Log.d("PokemonViewModel", localizedMessage!!)
     }
 
     private fun invalidateView() {

@@ -7,5 +7,4 @@ data class PokemonType(
     val pokemonSlotNumber: Int,
     @SerializedName("type")
     val pokemonSpecificType: PokemonTypeName
-
 )

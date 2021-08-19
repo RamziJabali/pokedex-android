@@ -1,4 +1,4 @@
-package com.example.pokedex.koin
+package com.example.pokedex.pokemon.pokemonkoinmodule
 
 import com.example.pokedex.pokemon.viewmodel.PokemonViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

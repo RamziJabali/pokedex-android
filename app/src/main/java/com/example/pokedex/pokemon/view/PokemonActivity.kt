@@ -11,6 +11,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pokedex.BuildConfig
 import com.example.pokedex.R
 import com.example.pokedex.pokemon.viewmodel.PokemonViewModel
 import com.example.pokedex.pokemon.viewmodel.PokemonViewState
@@ -26,6 +27,7 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
     companion object {
         val TAG: String = PokemonActivity::class.java.simpleName
         const val EXTRA_POKEMON_ID = "com.example.pokedex.pokedex.view"
+        const val ANIMATION_TIME_LENGTH: Long = 500
 
         fun newInstance(context: Context, pokeId: Int): Intent {
             return Intent(context, PokemonActivity::class.java).apply {
@@ -99,8 +101,8 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
             requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
             enterTransition = Explode()
             exitTransition = Explode()
-            enterTransition.duration = 500
-            exitTransition.duration = 500
+            enterTransition.duration = ANIMATION_TIME_LENGTH
+            exitTransition.duration = ANIMATION_TIME_LENGTH
         }
 
         setContentView(R.layout.activity_pokemon)
@@ -115,12 +117,14 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
 
     private fun monitoringViewState() {
         compositeDisposable.add(pokemonViewModel.pokemonViewStateObservable
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { pokemonViewState -> setPokemonViewElements(pokemonViewState) },
-                { error -> Log.e(TAG, error.localizedMessage ?: "Error") }
-            ))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        { pokemonViewState -> setPokemonViewElements(pokemonViewState) },
+                        { error ->
+                            if (BuildConfig.DEBUG) Log.d(TAG, error.localizedMessage ?: "Error")
+                        }
+                ))
     }
 
     override fun setNewViewState(pokemonViewState: PokemonViewState) {
@@ -135,8 +139,8 @@ class PokemonActivity : AppCompatActivity(), ViewListener {
         }
 
         Picasso.get()
-            .load(pokemonViewState.pokemonImageURL)
-            .into(pokemonEnhancedImageView)
+                .load(pokemonViewState.pokemonImageURL)
+                .into(pokemonEnhancedImageView)
 
         pokemonType1.text = pokemonViewState.pokemonStatType1String
 

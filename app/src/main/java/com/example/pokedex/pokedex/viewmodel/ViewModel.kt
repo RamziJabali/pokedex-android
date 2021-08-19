@@ -2,6 +2,7 @@ package com.example.pokedex.pokedex.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.pokedex.BuildConfig
 import com.example.pokedex.model.BasePokedex
 import com.example.pokedex.model.UseCase
 import com.example.pokedex.pokedex.view.GridProperties
@@ -13,12 +14,12 @@ import io.reactivex.subjects.BehaviorSubject
 class ViewModel(private var useCase: UseCase) : ViewModel() {
 
     companion object {
-        private var limit = 10
-        private var offset = 10
+        private const val LIMIT = 10
     }
 
     val viewStateObservable = BehaviorSubject.create<ViewState>()
 
+    private var offset = 10
     private var viewState = ViewState()
     private var compositeDisposable = CompositeDisposable()
 
@@ -56,7 +57,7 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     }
 
     private fun onFailure(localizedMessage: String?) {
-        Log.e("ViewModel", localizedMessage!!)
+       if(BuildConfig.DEBUG) Log.d("ViewModel", localizedMessage!!)
     }
 
     private fun invalidateView() {
@@ -64,8 +65,14 @@ class ViewModel(private var useCase: UseCase) : ViewModel() {
     }
 
     fun onPageEnd() {
-        offset += 10
-        makeApiCall(offset, limit)
+        offset += LIMIT
+        makeApiCall(offset, LIMIT)
+    }
+
+    fun launchActivity(itemOrderNumber: Int) {
+        viewState.launchActivity = true
+        viewState.pokeId = itemOrderNumber
+        invalidateView()
     }
 
 }
