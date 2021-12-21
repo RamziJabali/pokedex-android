@@ -3,6 +3,7 @@ package com.example.pokedex.model
 import com.example.pokedex.network.Pokedex.BasePokemon
 import com.example.pokedex.network.Pokemon.PokemonType
 import io.reactivex.Observable
+import io.reactivex.Single
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -37,7 +38,7 @@ class UseCase(private val pokedexRepo: PokedexRepo) {
     }
 
 
-    fun getPokedex(offset: Int, limit: Int): Observable<BasePokedex> =
+    fun getPokedex(offset: Int, limit: Int): Single<BasePokedex> =
         pokedexRepo.getPokedex(offset, limit)
             .map { pokedex ->
                 BasePokedex(

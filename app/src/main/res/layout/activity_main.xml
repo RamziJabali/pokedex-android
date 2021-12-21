@@ -7,8 +7,8 @@
      android:background="@color/purple_500"
     tools:context=".pokedex.view.MainActivity">
 
-    <GridView
-        android:id="@+id/gridView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_list_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:horizontalSpacing="2dp"
@@ -21,6 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="hello" >
-    </GridView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

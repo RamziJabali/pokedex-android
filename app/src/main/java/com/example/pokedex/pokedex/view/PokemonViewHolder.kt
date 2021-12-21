@@ -27,11 +27,18 @@ class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             )
     }
 
-    fun bind(gridProperties: GridProperties) {
+    fun bind(gridProperties: GridProperties, position: Int, onPokeClick: (Int) -> Unit) {
         pokemonTextView.text = gridProperties.itemText
-        itemView.setBackgroundResource(gridProperties.itemBackgroundColor)
-        Picasso.get().load("https://assets.pokemon.com/assets/cms2/img/pokedex/full/${gridProperties.itemOrderNumberString}.png").into(pokemonImageView)
-        itemView.invalidate()
+        itemView.apply {
+            setBackgroundResource(gridProperties.itemBackgroundColor)
+            Picasso.get()
+                .load("https://assets.pokemon.com/assets/cms2/img/pokedex/full/${gridProperties.itemOrderNumberString}.png")
+                .into(pokemonImageView)
+            setOnClickListener {
+                onPokeClick.invoke(position)
+            }
+            invalidate()
+        }
     }
 
 
