@@ -37,16 +37,12 @@ class ViewModel(private var useCase: UseCase) : ViewModel(), KoinComponent {
 
     private var viewState = ViewState()
     private var compositeDisposable = CompositeDisposable()
-
-    fun startApplication() {
-
-    }
-
+    
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
     }
-
+ 
     private fun invalidateView() {
         viewStateObservable.onNext(viewState)
     }
